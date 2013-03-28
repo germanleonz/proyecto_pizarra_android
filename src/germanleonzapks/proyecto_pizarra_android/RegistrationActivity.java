@@ -6,6 +6,8 @@ import android.view.Menu;
 
 public class RegistrationActivity extends Activity {
 
+	private static final String TAG = "RegistrationActivity";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

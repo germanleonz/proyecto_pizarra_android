@@ -11,7 +11,7 @@ import android.widget.Button;
 public class MainActivity extends Activity {
 
 	private static final String TAG = "MainActivity";
-	private Button loginButton;
+	private Button loginButton, registrationButton;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,9 @@ public class MainActivity extends Activity {
 		
 		loginButton = (Button) findViewById(R.id.button_login);
 		loginButton.setOnClickListener(new MyButtonClickListener());
+		
+		registrationButton = (Button) findViewById(R.id.button_sign_in);
+		registrationButton.setOnClickListener(new MyButtonClickListener());
 	}
 
 	@Override
