@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    
     <string name="app_name">Proyecto Pizarra</string>
     <string name="action_settings">Configuración</string>
-    <string name="hello_world">Hola Mundo!</string>
+    <string name="label_bienvenido">Bievenido!</string>
+    <string name="label_login">Conectarse</string>
+    <string name="label_registrarse">Registrarse</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="title_activity_registration">RegistrationActivity</string>
+    <string name="hello_world">Hola mundo!</string>
+    <string name="label_nombre_de_usuario">Nombre de usuario</string>
+    <string name="label_introduzca_contrasena">Contraseña</string>
+    <string name="label_repita_contrasena">Repita su contraseña</string>
+    <string name="label_nombre">Nombre</string>
+    <string name="label_apellido">Apellido</string>
+    <string name="label_correo">Correo electrónico</string>
+    <string name="label_telefono">Teléfono</string>
+    
 </resources>
