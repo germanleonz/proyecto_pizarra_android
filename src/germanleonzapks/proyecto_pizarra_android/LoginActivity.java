@@ -1,9 +1,11 @@
 package germanleonzapks.proyecto_pizarra_android;
 
+import models.Authenticator;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,8 +26,8 @@ public class LoginActivity extends Activity {
 	 * A dummy authentication store containing known user names and passwords.
 	 * TODO: remove after connecting to a real authentication system.
 	 */
-	private static final String[] DUMMY_CREDENTIALS = new String[] {
-			"foo@example.com:hello", "bar@example.com:world" };
+//	private static final String[] DUMMY_CREDENTIALS = new String[] {
+//			"foo@example.com:hello", "bar@example.com:world" };
 
 	/**
 	 * The default email to populate the email field with.
@@ -199,24 +201,26 @@ public class LoginActivity extends Activity {
 		@Override
 		protected Boolean doInBackground(Void... params) {
 			// TODO: attempt authentication against a network service.
-
-			try {
-				// Simulate network access.
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				return false;
-			}
-
-			for (String credential : DUMMY_CREDENTIALS) {
-				String[] pieces = credential.split(":");
-				if (pieces[0].equals(mEmail)) {
-					// Account exists, return true if the password matches.
-					return pieces[1].equals(mPassword);
-				}
-			}
-
-			// TODO: register the new account here.
-			return true;
+			Authenticator auth = new Authenticator();
+			return auth.authenticate(mEmail, mPassword);
+			
+//			try {
+//				// Simulate network access.
+//				Thread.sleep(2000);
+//			} catch (InterruptedException e) {
+//				return false;
+//			}
+//
+//			for (String credential : DUMMY_CREDENTIALS) {
+//				String[] pieces = credential.split(":");
+//				if (pieces[0].equals(mEmail)) {
+//					// Account exists, return true if the password matches.
+//					return pieces[1].equals(mPassword);
+//				}
+//			}
+//
+//			// TODO: register the new account here.
+//			return true;
 		}
 
 		@Override
@@ -225,7 +229,9 @@ public class LoginActivity extends Activity {
 			showProgress(false);
 
 			if (success) {
-				finish();
+				Intent i;
+				i = new Intent(LoginActivity.this, HomeActivity.class);
+				startActivity(i);
 			} else {
 				mPasswordView
 						.setError(getString(R.string.error_incorrect_password));
