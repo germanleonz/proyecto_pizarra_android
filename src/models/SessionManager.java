@@ -1,6 +1,7 @@
 package models;
 
 import germanleonzapks.proyecto_pizarra_android.LoginActivity;
+import germanleonzapks.proyecto_pizarra_android.MainActivity;
 
 import java.util.HashMap;
 
@@ -49,7 +50,16 @@ public class SessionManager {
 	
 	public void checkLogin() {
 		if (!this.isLoggedIn()) {
-			logoutUser();
+			 // user is not logged in redirect him to Login Activity
+            Intent i = new Intent(mContext, MainActivity.class);
+            // Closing all the Activities
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+ 
+            // Add new Flag to start new Activity
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+ 
+            // Staring Login Activity
+            mContext.startActivity(i);
 		}
 	}
 	

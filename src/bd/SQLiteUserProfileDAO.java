@@ -7,10 +7,10 @@ import models.UserProfile;
 public class SQLiteUserProfileDAO implements UserProfileDAO {
 
 	@Override
-	public int crearUsuario(String nombre_usuario, String contrasena,
+	public boolean crearUsuario(String nombre_usuario, String contrasena,
 			String nombre, String apellido, String correo, String telefono) {
 		// TODO Auto-generated method stub
-		return 0;
+		return false;
 	}
 
 	@Override

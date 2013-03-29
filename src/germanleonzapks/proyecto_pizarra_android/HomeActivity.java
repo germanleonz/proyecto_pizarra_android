@@ -23,11 +23,12 @@ public class HomeActivity extends Activity {
 		
 		// Inicializamos el manejador de sesiones
 		sessionManager = new SessionManager(getApplicationContext());
+		sessionManager.checkLogin();
 		
 		mTextView = (TextView) findViewById(R.id.temporal);
 		
-		HashMap<String, String> currenta_user_details = sessionManager.getUserDetails();
-		mTextView.setText(currenta_user_details.get(SessionManager.KEY_NAME));
+		HashMap<String, String> current_user_details = sessionManager.getUserDetails();
+		mTextView.setText(current_user_details.get(SessionManager.KEY_NAME));
 	}
 
 	@Override

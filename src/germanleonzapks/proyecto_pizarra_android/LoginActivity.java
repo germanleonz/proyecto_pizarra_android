@@ -62,10 +62,7 @@ public class LoginActivity extends Activity {
 		//	Inicializamos el manejador de sesion
 		sessionManager = new SessionManager(getApplicationContext());
 		
-		//	Revisamos que el usuario este loggeado, en caso de no estarlo se va a la pantalla de login
-		sessionManager.checkLogin();
-		
-		// Set up the login form.
+   		// Set up the login form.
 		mNombreUsuario = getIntent().getStringExtra(EXTRA_EMAIL);
 		mNombreUsuarioView = (EditText) findViewById(R.id.email);
 		mNombreUsuarioView.setText(mNombreUsuario);
