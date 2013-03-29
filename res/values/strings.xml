@@ -18,5 +18,8 @@
     <string name="label_correo">Email</string>
     <string name="label_telefono">Phone</string>
     <string name="label_crear_cuenta">Create account</string>
+    <string name="dialog_confirm_logout">Do you want to logout?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
 </resources>

@@ -18,12 +18,18 @@ public class Authenticator {
 	public boolean authenticate(String nombre_usuario, String clave) {
 		String data_usuario;
 		try {
-			data_usuario = downloadUrl(mUrl);
+			StringBuffer sb = new StringBuffer(mUrl);
+			sb.append(nombre_usuario + "/");
+			sb.append(clave + "/.json");
+			
+			data_usuario = downloadUrl(sb.toString());
 			
 			//	Parseamos la data JSON
 			JSONObject mJSONObject = new JSONObject(data_usuario);
 			String nombre_recibido = mJSONObject.getString("username");
 			return nombre_recibido != null;
+			
+			//	Agregar datos de la sesion a los SharedPreferences con el SessionManager
 		} catch (IOException ioe) {
 			System.out.println("Error leyendo data " + ioe.getMessage());
 		} catch (JSONException je) {
@@ -48,6 +54,7 @@ public class Authenticator {
 			
 			//	Starts the query
 			conn.connect();
+			System.out.println("HOLAAAAA");
 			int response = conn.getResponseCode();
 			System.out.println("The response code is " + response);
 			is = conn.getInputStream();

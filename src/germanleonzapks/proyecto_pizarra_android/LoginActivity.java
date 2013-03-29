@@ -1,6 +1,7 @@
 package germanleonzapks.proyecto_pizarra_android;
 
 import models.Authenticator;
+import models.SessionManager;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
@@ -40,15 +41,17 @@ public class LoginActivity extends Activity {
 	private UserLoginTask mAuthTask = null;
 
 	// Values for email and password at the time of the login attempt.
-	private String mEmail;
+	private String mNombreUsuario;
 	private String mPassword;
 
 	// UI references.
-	private EditText mEmailView;
+	private EditText mNombreUsuarioView;
 	private EditText mPasswordView;
 	private View mLoginFormView;
 	private View mLoginStatusView;
 	private TextView mLoginStatusMessageView;
+	
+	private SessionManager sessionManager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +59,16 @@ public class LoginActivity extends Activity {
 
 		setContentView(R.layout.activity_login);
 
+		//	Inicializamos el manejador de sesion
+		sessionManager = new SessionManager(getApplicationContext());
+		
+		//	Revisamos que el usuario este loggeado, en caso de no estarlo se va a la pantalla de login
+		sessionManager.checkLogin();
+		
 		// Set up the login form.
-		mEmail = getIntent().getStringExtra(EXTRA_EMAIL);
-		mEmailView = (EditText) findViewById(R.id.email);
-		mEmailView.setText(mEmail);
+		mNombreUsuario = getIntent().getStringExtra(EXTRA_EMAIL);
+		mNombreUsuarioView = (EditText) findViewById(R.id.email);
+		mNombreUsuarioView.setText(mNombreUsuario);
 
 		mPasswordView = (EditText) findViewById(R.id.password);
 		mPasswordView
@@ -106,11 +115,11 @@ public class LoginActivity extends Activity {
 		}
 
 		// Reset errors.
-		mEmailView.setError(null);
+		mNombreUsuarioView.setError(null);
 		mPasswordView.setError(null);
 
 		// Store values at the time of the login attempt.
-		mEmail = mEmailView.getText().toString();
+		mNombreUsuario = mNombreUsuarioView.getText().toString();
 		mPassword = mPasswordView.getText().toString();
 
 		boolean cancel = false;
@@ -128,15 +137,11 @@ public class LoginActivity extends Activity {
 		}
 
 		// Check for a valid email address.
-		if (TextUtils.isEmpty(mEmail)) {
-			mEmailView.setError(getString(R.string.error_field_required));
-			focusView = mEmailView;
+		if (TextUtils.isEmpty(mNombreUsuario)) {
+			mNombreUsuarioView.setError(getString(R.string.error_field_required));
+			focusView = mNombreUsuarioView;
 			cancel = true;
-		} else if (!mEmail.contains("@")) {
-			mEmailView.setError(getString(R.string.error_invalid_email));
-			focusView = mEmailView;
-			cancel = true;
-		}
+		} 
 
 		if (cancel) {
 			// There was an error; don't attempt login and focus the first
@@ -200,27 +205,8 @@ public class LoginActivity extends Activity {
 	public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 		@Override
 		protected Boolean doInBackground(Void... params) {
-			// TODO: attempt authentication against a network service.
 			Authenticator auth = new Authenticator();
-			return auth.authenticate(mEmail, mPassword);
-			
-//			try {
-//				// Simulate network access.
-//				Thread.sleep(2000);
-//			} catch (InterruptedException e) {
-//				return false;
-//			}
-//
-//			for (String credential : DUMMY_CREDENTIALS) {
-//				String[] pieces = credential.split(":");
-//				if (pieces[0].equals(mEmail)) {
-//					// Account exists, return true if the password matches.
-//					return pieces[1].equals(mPassword);
-//				}
-//			}
-//
-//			// TODO: register the new account here.
-//			return true;
+			return auth.authenticate(mNombreUsuario, mPassword);
 		}
 
 		@Override
@@ -229,6 +215,7 @@ public class LoginActivity extends Activity {
 			showProgress(false);
 
 			if (success) {
+				sessionManager.createLoginSession(mNombreUsuario);
 				Intent i;
 				i = new Intent(LoginActivity.this, HomeActivity.class);
 				startActivity(i);
