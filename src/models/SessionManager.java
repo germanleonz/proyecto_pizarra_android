@@ -50,7 +50,7 @@ public class SessionManager {
 	
 	public void checkLogin() {
 		if (!this.isLoggedIn()) {
-			 // user is not logged in redirect him to Login Activity
+			 // user is not logged in redirect him to MainActivity
             Intent i = new Intent(mContext, MainActivity.class);
             // Closing all the Activities
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -68,7 +68,7 @@ public class SessionManager {
 		editor.clear();
 		editor.commit();
 		
-		Intent i = new Intent(mContext, LoginActivity.class);
+		Intent i = new Intent(mContext, MainActivity.class);
 		
 		//	Closing all activities
 		i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

@@ -20,11 +20,11 @@ public class SQLitePizarraDAO implements PizarraDAO {
 	}
 
 	@Override
-	public ArrayList<Pizarra> buscarTodas() {
+	public ArrayList<Pizarra> buscarPizarrasDeUsuario(String nombre_usuario) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	@Override
 	public ArrayList<Pizarra> buscarPorIdPizarra(String id_pizarra) {
 		// TODO Auto-generated method stub

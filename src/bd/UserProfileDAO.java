@@ -5,8 +5,7 @@ import java.util.ArrayList;
 import models.UserProfile;
 
 public interface UserProfileDAO {
-	public boolean crearUsuario(String nombre_usuario, String contrasena, String nombre,
-			String apellido, String correo, String telefono);
+	public boolean crearUsuario(UserProfile nuevo_up);
 	
 	public boolean eliminar_usuario(String nombre_usuario);
 	

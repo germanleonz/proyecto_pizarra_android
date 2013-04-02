@@ -7,10 +7,7 @@
     <string name="label_login">Conectarse</string>
     <string name="label_registrarse">Registrarse</string>
     <string name="title_activity_home">HomeActivity</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
-    <string name="title_activity_registration">RegistrationActivity</string>
+    <string name="title_home_activity">Home</string>
     <string name="hello_world">Hola mundo!</string>
     <string name="label_nombre_de_usuario">Nombre de usuario</string>
     <string name="label_introduzca_contrasena">Contraseña</string>
@@ -19,5 +16,9 @@
     <string name="label_apellido">Apellido</string>
     <string name="label_correo">Correo electrónico</string>
     <string name="label_telefono">Teléfono</string>
+    <string name="label_crear_cuenta">Crear cuenta</string>
+    <string name="dialog_confirm_logout">Quiere cerrar sesión?</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
     
 </resources>

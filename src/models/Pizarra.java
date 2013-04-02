@@ -1,5 +1,10 @@
 package models;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.util.Log;
+
 public class Pizarra {
 
 	private String id;
@@ -77,5 +82,24 @@ public class Pizarra {
 
 	public void setIs_active(boolean is_active) {
 		this.is_active = is_active;
+	}
+	
+	@Override
+	public String toString() {
+		JSONObject temp = new JSONObject();
+		try {
+			temp.put("idpiz", getId());
+			temp.put("nombrepiz", getNombre());
+			temp.put("descripcionpiz", getDescripcion());
+			temp.put("fechacreacion", getFecha_creacion());
+			temp.put("fechafinal", getFecha_final());
+			temp.put("logindueno", getLogin_dueno());
+			temp.put("is_active", isIs_active());
+		} catch (JSONException je) {
+			System.out.println("toString : Error manejando data JSON");
+		}
+		
+		// TODO Auto-generated method stub
+		return temp.toString();
 	}
 }

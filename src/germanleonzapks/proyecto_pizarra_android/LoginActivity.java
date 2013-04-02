@@ -1,7 +1,14 @@
 package germanleonzapks.proyecto_pizarra_android;
 
-import models.Authenticator;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import models.Pizarra;
 import models.SessionManager;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
@@ -17,18 +24,15 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
+import bd.DAOFactory;
+import bd.PizarraDAO;
+import bd.RESTDAOFactory;
 
 /**
  * Activity which displays a login screen to the user, offering registration as
  * well.
  */
 public class LoginActivity extends Activity {
-	/**
-	 * A dummy authentication store containing known user names and passwords.
-	 * TODO: remove after connecting to a real authentication system.
-	 */
-//	private static final String[] DUMMY_CREDENTIALS = new String[] {
-//			"foo@example.com:hello", "bar@example.com:world" };
 
 	/**
 	 * The default email to populate the email field with.
@@ -52,14 +56,14 @@ public class LoginActivity extends Activity {
 	private TextView mLoginStatusMessageView;
 	
 	private SessionManager sessionManager;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.activity_login);
 
-		//	Inicializamos el manejador de sesion
+		//	We initialize the SessionManager
 		sessionManager = new SessionManager(getApplicationContext());
 		
    		// Set up the login form.
@@ -127,7 +131,7 @@ public class LoginActivity extends Activity {
 			mPasswordView.setError(getString(R.string.error_field_required));
 			focusView = mPasswordView;
 			cancel = true;
-		} else if (mPassword.length() < 4) {
+		} else if (mPassword.length() < 6) {
 			mPasswordView.setError(getString(R.string.error_invalid_password));
 			focusView = mPasswordView;
 			cancel = true;
@@ -195,6 +199,31 @@ public class LoginActivity extends Activity {
 		}
 	}
 
+	private boolean authenticate(String nombre_usuario, String clave) {
+		String data_usuario;
+		try {
+			StringBuffer sb = new StringBuffer(RESTDAOFactory.DJANGO_URL);
+			sb.append("/usuarios/login/");
+			sb.append(nombre_usuario + "/");
+			sb.append(clave + "/.json");
+			
+			data_usuario = RESTDAOFactory.downloadUrl(sb.toString());
+			
+			//	Parseamos la data JSON
+			JSONObject mJSONObject = new JSONObject(data_usuario);
+			String nombre_recibido = mJSONObject.getString("username");
+			return nombre_recibido != null;
+			
+			//	Agregar datos de la sesion a los SharedPreferences con el SessionManager
+		} catch (IOException ioe) {
+			System.out.println("Error leyendo data " + ioe.getMessage());
+		} catch (JSONException je) {
+			System.out.println("Credenciales invalidas " + je.getMessage());
+			return false;
+		}
+		return false;
+	}
+	
 	/**
 	 * Represents an asynchronous login/registration task used to authenticate
 	 * the user.
@@ -202,8 +231,7 @@ public class LoginActivity extends Activity {
 	public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 		@Override
 		protected Boolean doInBackground(Void... params) {
-			Authenticator auth = new Authenticator();
-			return auth.authenticate(mNombreUsuario, mPassword);
+			return authenticate(mNombreUsuario, mPassword);
 		}
 
 		@Override
@@ -213,6 +241,7 @@ public class LoginActivity extends Activity {
 
 			if (success) {
 				sessionManager.createLoginSession(mNombreUsuario);
+				
 				Intent i;
 				i = new Intent(LoginActivity.this, HomeActivity.class);
 				startActivity(i);
@@ -229,4 +258,5 @@ public class LoginActivity extends Activity {
 			showProgress(false);
 		}
 	}
-}
+	
+	}

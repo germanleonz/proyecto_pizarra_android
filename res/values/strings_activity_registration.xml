@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_registration">Create new account</string>
+    
+    <string name="registration_progress_creating_user">Creating user</string>
+    <string name="user_registered_successfully">User created</string>
+    <string name="error_username_already_registered">Username already registered</string>
+    <string name="error_passwords_dont_match">Passwords dont match</string>
+</resources>

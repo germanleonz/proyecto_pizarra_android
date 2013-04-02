@@ -7,7 +7,6 @@
     <string name="label_login">Log In</string>
     <string name="label_registrarse">Sign In</string>
     <string name="title_activity_home">Home</string>
-    <string name="title_activity_registration">Registration</string>
     <string name="title_home_activity">Home</string>
     <string name="hello_world">Hello world!</string>
     <string name="label_nombre_de_usuario">Username</string>
