@@ -51,6 +51,7 @@ public class LoginActivity extends Activity {
 	// UI references.
 	private EditText mNombreUsuarioView;
 	private EditText mPasswordView;
+	
 	private View mLoginFormView;
 	private View mLoginStatusView;
 	private TextView mLoginStatusMessageView;
@@ -258,5 +259,4 @@ public class LoginActivity extends Activity {
 			showProgress(false);
 		}
 	}
-	
-	}
+}

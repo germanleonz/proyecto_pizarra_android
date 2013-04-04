@@ -42,7 +42,6 @@ public class RESTPizarraDAO implements PizarraDAO {
 			response = RESTDAOFactory.downloadUrl(sb.toString());			
 			//	Parseamos la data JSON
 			
-			Log.d(TAG, "TODO BIEN");
 			JSONArray pizarrasJSON = new JSONArray(response);
 			int n = pizarrasJSON.length();
 			

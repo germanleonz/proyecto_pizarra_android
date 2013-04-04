@@ -28,6 +28,7 @@
         <activity
             android:name="germanleonzapks.proyecto_pizarra_android.LoginActivity"
             android:label="@string/title_activity_login"
+            android:noHistory="true"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
         <activity
@@ -37,6 +38,10 @@
         <activity
             android:name="germanleonzapks.proyecto_pizarra_android.RegistrationActivity"
             android:label="@string/title_activity_registration" >
+        </activity>
+        <activity
+            android:name="germanleonzapks.proyecto_pizarra_android.PizarraDetailsActivity"
+            android:label="@string/title_activity_pizarra_details" >
         </activity>
     </application>
 

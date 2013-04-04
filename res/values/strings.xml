@@ -20,5 +20,12 @@
     <string name="dialog_confirm_logout">Do you want to logout?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="label_lista_pizarras">Projects</string>
+    <string name="label_nueva_pizarra">Create new project</string>
+    <string name="title_activity_pizarra_details">PizarraDetailsActivity</string>
+    <string name="label_nombre_pizarra">Name</string>
+    <string name="label_descripcion_pizarra">Description</string>
+    <string name="label_fechainicio_pizarra">Start date</string>
+    <string name="label_fechafinal_pizarra">End Data</string>
 
 </resources>

@@ -18,17 +18,16 @@ public class RESTDAOFactory extends DAOFactory {
 	
 	private static final String TAG = "RESTDAOFactory";
 	//
-	public static final String DJANGO_URL = "http://192.168.1.103:8000";
+	public static final String DJANGO_URL = "http://www.proyectopizarra.cloudns.org:8000";
 
 	public static HttpURLConnection crearConexion(String myurl) throws IOException {
 			URL url = new URL(myurl);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			
-			//	Connection setup
-			conn.setReadTimeout(10000 /*milliseconds*/);
-			conn.setConnectTimeout(15000 /*milliseconds*/);
+			//	Configuracion de la conexion
+			conn.setReadTimeout(10000 /*milisegundos*/);
+			conn.setConnectTimeout(15000 /*milisegundos*/);
 			
-			//	Starts the query
 			return conn;
 	}
 	
