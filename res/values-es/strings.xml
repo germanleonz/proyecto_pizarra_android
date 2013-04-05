@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+
     <string name="app_name">Proyecto Pizarra</string>
     <string name="action_settings">Configuración</string>
-    <string name="label_bienvenido">Bievenido!</string>
+    <string name="label_bienvenido">Bienvenido!</string>
     <string name="label_login">Conectarse</string>
     <string name="label_registrarse">Registrarse</string>
-    <string name="title_activity_home">HomeActivity</string>
-    <string name="title_home_activity">Home</string>
-    <string name="hello_world">Hola mundo!</string>
+    <string name="title_activity_home">Inicio</string>
+    <string name="title_home_activity">Inicio</string>
+    <string name="hello_world">Hola Mundo!</string>
     <string name="label_nombre_de_usuario">Nombre de usuario</string>
     <string name="label_introduzca_contrasena">Contraseña</string>
-    <string name="label_repita_contrasena">Repita su contraseña</string>
+    <string name="label_repita_contrasena">Repita la contraseña</string>
     <string name="label_nombre">Nombre</string>
     <string name="label_apellido">Apellido</string>
     <string name="label_correo">Correo electrónico</string>
     <string name="label_telefono">Teléfono</string>
     <string name="label_crear_cuenta">Crear cuenta</string>
-    <string name="dialog_confirm_logout">Quiere cerrar sesión?</string>
+    <string name="dialog_confirm_logout">Desea cerrar la sesión?</string>
     <string name="yes">Si</string>
     <string name="no">No</string>
-    
+    <string name="label_lista_pizarras"><b>Pizarras</b></string>
+    <string name="label_no_hay_pizarras"><b>No hay pizarras</b></string>
+    <string name="label_nueva_pizarra">Crear nueva pizarra</string>
+    <string name="title_activity_pizarra_details">Detalles de una pizarra</string>
+    <string name="label_nombre_pizarra">Nombre</string>
+    <string name="label_descripcion_pizarra">Descripción</string>
+    <string name="label_fechainicio_pizarra">Fecha de inicio</string>
+    <string name="label_fechafinal_pizarra">Fecha final</string>
+
 </resources>

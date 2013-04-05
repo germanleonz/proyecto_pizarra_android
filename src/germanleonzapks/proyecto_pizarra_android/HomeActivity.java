@@ -68,6 +68,8 @@ public class HomeActivity extends Activity {
 		//	Conseguimos las referencias a las vistas de la ListView
 		mPizarraListView = (ListView) findViewById(R.id.lv_pizarras);
 		
+		mPizarraListView.setEmptyView(findViewById(R.id.emptyView));
+		
 		mPizarraListView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,

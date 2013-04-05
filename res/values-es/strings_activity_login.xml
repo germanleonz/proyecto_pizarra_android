@@ -5,12 +5,12 @@
     <!-- Strings related to login -->
     <string name="prompt_email">Correo</string>
     <string name="prompt_password">Contraseña</string>
-    <string name="action_sign_in_register"><b>Sign in</b> o registrese</string>
-    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_sign_in_register"><b>Conectarse</b> o Registrarse</string>
+    <string name="action_sign_in_short">Conectarse</string>
     <string name="action_forgot_password">Recuperar contraseña perdida</string>
-    <string name="login_progress_signing_in">Conectandose&#8230;</string>
-    <string name="error_invalid_email">Esta dirección de correo es inválida</string>
-    <string name="error_invalid_password">Esta contraseña es muy corta</string>
+    <string name="login_progress_signing_in">Conectándose&#8230;</string>
+    <string name="error_invalid_email">El correo es inválido</string>
+    <string name="error_invalid_password">Esta contraseña es demasiado corta</string>
     <string name="error_incorrect_password">Esta contraseña es incorrecta</string>
     <string name="error_field_required">Este campo es requerido</string>
 

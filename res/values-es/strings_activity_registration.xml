@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_registration">Crear cuenta</string>
+    
+    <string name="registration_progress_creating_user">Creando usuario&#8230;</string>
+    <string name="user_registered_successfully">Usuario Creado</string>
+    <string name="error_username_already_registered">Nombre de usuario ya registrado</string>
+    <string name="error_passwords_dont_match">Las contraseñas no coinciden</string>
+</resources>
